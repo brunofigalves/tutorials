@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>pt.sample.${service}</groupId>
+		<artifactId>sample-${service}-parent</artifactId>
+		<version>${version}</version>
+	</parent>
+
+	<groupId>pt.sample.${service}</groupId>
+	<artifactId>sample-${service}-starter</artifactId>
+	<version>${version}</version>
+
+	<packaging>war</packaging>
+
+	<name>Sample Application Starter</name>
+	<description>This module initializes the application through Spring Boot</description>
+
+	<dependencies>
+		<!-- Project Dependencies -->
+		<dependency>
+			<groupId>pt.sample.${service}</groupId>
+			<artifactId>sample-${service}-rest-api</artifactId>
+			<version>${sample.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>pt.sample.${service}</groupId>
+			<artifactId>sample-${service}-domain</artifactId>
+			<version>${sample.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>pt.sample.${service}</groupId>
+			<artifactId>sample-${service}-data</artifactId>
+			<version>${sample.version}</version>
+		</dependency>
+
+		<!-- Spring -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+			<version>${spring-boot.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
+			<version>${spring-boot.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<version>${spring-boot.version}</version>
+			<scope>test</scope>
+			<exclusions>
+				<exclusion>
+					<groupId>org.junit.vintage</groupId>
+					<artifactId>junit-vintage-engine</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<version>${spring-boot.version}</version>
+				<configuration>
+					<executable>true</executable>
+					<mainClass>pt.sample.${service}.SampleApplication</mainClass>
+				</configuration>
+				<executions>
+					<execution>
+						<goals>
+							<goal>repackage</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>${maven-war-plugin.version}</version>
+				<configuration>
+					<failOnMissingWebXml>false</failOnMissingWebXml>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>

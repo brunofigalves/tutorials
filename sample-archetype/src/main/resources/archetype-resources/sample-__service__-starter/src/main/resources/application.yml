@@ -1,0 +1,21 @@
+spring:
+  profiles: demo
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    database-platform: org.hibernate.dialect.H2Dialect
+    show-sql: true
+  datasource:
+    url: "jdbc:h2:mem:test;DB_CLOSE_DELAY=-1"
+    username: sa
+    password: password
+    driver-class-name: "org.h2.Driver"
+  main:
+    allow-bean-definition-overriding: true
+  mvc:
+    locale: pt
+
+logging:
+  file:
+    path: .
+    name: sample-${service}.log

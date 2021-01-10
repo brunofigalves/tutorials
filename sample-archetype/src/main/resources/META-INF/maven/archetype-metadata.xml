@@ -1,0 +1,70 @@
+<archetype-descriptor
+        xmlns="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.1.0"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.1.0 https://maven.apache.org/xsd/archetype-descriptor-1.1.0.xsd"
+        name="sample-archetype">
+
+    <requiredProperties>
+        <requiredProperty key="service">
+            <defaultValue>demo</defaultValue>
+        </requiredProperty>
+        <requiredProperty key="version">
+            <defaultValue>0.0.1-SNAPSHOT</defaultValue>
+        </requiredProperty>
+    </requiredProperties>
+
+    <modules>
+        <module id="sample-${service}-starter" dir="sample-__service__-starter" name="sample-${service}-starter">
+            <fileSets>
+                <fileSet filtered="true" packaged="true">
+                    <directory>src/main/java</directory>
+                    <includes>
+                        <include>**/*.java</include>
+                        <include>**/*.empty</include>
+                    </includes>
+                </fileSet>
+                <fileSet filtered="true" packaged="false">
+                    <directory>src/main/resources</directory>
+                    <includes>
+                        <include>*.yml</include>
+                        <include>**/*.empty</include>
+                    </includes>
+                </fileSet>
+            </fileSets>
+        </module>
+        <module id="sample-${service}-rest-api" dir="sample-__service__-rest-api" name="sample-${service}-rest-api">
+            <fileSets>
+                <fileSet filtered="true" packaged="true">
+                    <directory>src/main/java</directory>
+                    <includes>
+                        <include>**/*.java</include>
+                        <include>**/*.empty</include>
+                    </includes>
+                </fileSet>
+            </fileSets>
+        </module>
+        <module id="sample-${service}-domain" dir="sample-__service__-domain" name="sample-${service}-domain">
+            <fileSets>
+                <fileSet filtered="true" packaged="true">
+                    <directory>src/main/java</directory>
+                    <includes>
+                        <include>**/*.java</include>
+                        <include>**/*.empty</include>
+                    </includes>
+                </fileSet>
+            </fileSets>
+        </module>
+        <module id="sample-${service}-data" dir="sample-__service__-data" name="sample-${service}-data">
+            <fileSets>
+                <fileSet filtered="true" packaged="true">
+                    <directory>src/main/java</directory>
+                    <includes>
+                        <include>**/*.java</include>
+                        <include>**/*.empty</include>
+                    </includes>
+                </fileSet>
+            </fileSets>
+        </module>
+    </modules>
+
+</archetype-descriptor>
